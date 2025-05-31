@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteka API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #666;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, button {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        input, select {
+            width: 200px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        .list {
+            margin-top: 20px;
+        }
+        .item {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+        }
+        .error {
+            color: #dc3545;
+            margin-top: 10px;
+        }
+        .success {
+            color: #28a745;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏛️ Biblioteka API</h1>
+
+    <!-- Autorzy -->
+    <div class="container">
+        <h2>👤 Autorzy</h2>
+        <div class="form-group">
+            <label>Imię:</label>
+            <input type="text" id="authorFirstName" placeholder="Jan">
+        </div>
+        <div class="form-group">
+            <label>Nazwisko:</label>
+            <input type="text" id="authorLastName" placeholder="Kowalski">
+        </div>
+        <button onclick="addAuthor()">Dodaj Autora</button>
+        <button onclick="loadAuthors()">Odśwież Listę</button>
+        <div id="authorMessage"></div>
+        <div id="authorsList" class="list"></div>
+    </div>
+
+    <!-- Książki -->
+    <div class="container">
+        <h2>📚 Książki</h2>
+        <div class="form-group">
+            <label>Tytuł:</label>
+            <input type="text" id="bookTitle" placeholder="Przykładowa książka">
+        </div>
+        <div class="form-group">
+            <label>Rok:</label>
+            <input type="number" id="bookYear" placeholder="2023" min="1000" max="2100">
+        </div>
+        <div class="form-group">
+            <label>Autor:</label>
+            <select id="bookAuthor">
+                <option value="">Wybierz autora...</option>
+            </select>
+        </div>
+        <button onclick="addBook()">Dodaj Książkę</button>
+        <button onclick="loadBooks()">Odśwież Listę</button>
+        <div id="bookMessage"></div>
+        <div id="booksList" class="list"></div>
+    </div>
+
+    <!-- Egzemplarze -->
+    <div class="container">
+        <h2>📖 Egzemplarze</h2>
+        <div class="form-group">
+            <label>Książka:</label>
+            <select id="copyBook">
+                <option value="">Wybierz książkę...</option>
+            </select>
+        </div>
+        <button onclick="addCopy()">Dodaj Egzemplarz</button>
+        <button onclick="loadCopies()">Odśwież Listę</button>
+        <div id="copyMessage"></div>
+        <div id="copiesList" class="list"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html> 
